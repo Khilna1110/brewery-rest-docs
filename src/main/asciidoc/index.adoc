@@ -1,0 +1,42 @@
+= SFG Brewery REST Docs
+Khilna Gudhka;
+
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+
+*GET Beer:*
+
+Curl request
+include::{snippets}/v1/beer-get/curl-request.adoc[]
+
+Http Request:
+include::{snippets}/v1/beer-get/http-request.adoc[]
+
+Path parameters:
+include::{snippets}/v1/beer-get/path-parameters.adoc[]
+
+Http Response:
+include::{snippets}/v1/beer-get/http-response.adoc[]
+
+Response Fields:
+include::{snippets}/v1/beer-get/response-fields.adoc[]
+
+*POST Beer:*
+
+Curl request
+include::{snippets}/v1/beer-post/curl-request.adoc[]
+
+Http Request:
+include::{snippets}/v1/beer-post/http-request.adoc[]
+
+Request Fields
+include::{snippets}/v1/beer-post/request-fields.adoc[]
+
+Http Response:
+include::{snippets}/v1/beer-post/http-response.adoc[]
+
+
+
+
+
