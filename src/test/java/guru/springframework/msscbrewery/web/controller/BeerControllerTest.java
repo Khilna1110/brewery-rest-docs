@@ -66,12 +66,12 @@ public class BeerControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id", is(validBeer.getId().toString())))
+                .andExpect(jsonPath("$.beerId", is(validBeer.getId().toString())))
                 .andExpect(jsonPath("$.beerName", is("Beer1")))
                 .andDo(document("v1/beer-get",
                         pathParameters(parameterWithName("beerId").description("UUID of desired beer to get")),
                         responseFields(
-                                fieldWithPath("id").description("UUID of the beer").type("UUID"),
+                                fieldWithPath("beerId").description("UUID of the beer").type("UUID"),
                                 fieldWithPath("beerName").description("Name of the beer"),
                                 fieldWithPath("beerStyle").description("Style of the beer"),
                                 fieldWithPath("upc").description("Beer UPC"),
@@ -99,7 +99,7 @@ public class BeerControllerTest {
                 .andExpect(status().isCreated())
                 .andDo(document("/v1/beer-post",
                                 requestFields(
-                                        fields.withPath("id").ignored(),
+                                        fields.withPath("beerId").ignored(),
                                         fields.withPath("beerName").description("Name of the beer"),
                                         fields.withPath("beerStyle").description("Style of the beer"),
                                         fields.withPath("upc").description("Beer UPC"),
