@@ -17,6 +17,7 @@ import org.springframework.restdocs.payload.FieldDescriptor;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.StringUtils;
 
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -54,6 +55,7 @@ public class BeerControllerTest {
         validBeer = BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Beer1")
                 .beerStyle("PALE_ALE")
+                .price(new BigDecimal("11.99"))
                 .upc(123456789012L)
                 .build();
     }
@@ -75,6 +77,7 @@ public class BeerControllerTest {
                                 fieldWithPath("beerName").description("Name of the beer"),
                                 fieldWithPath("beerStyle").description("Style of the beer"),
                                 fieldWithPath("upc").description("Beer UPC"),
+                                fieldWithPath("price").description("Price of the beer"),
                                 fieldWithPath("createdDate").description("Created Date of Beer").type(OffsetDateTime.class),
                                 fieldWithPath("lastUpdatedDate").description("Last Updated Date of Beer").type(OffsetDateTime.class)
                         )
@@ -103,6 +106,7 @@ public class BeerControllerTest {
                                         fields.withPath("beerName").description("Name of the beer"),
                                         fields.withPath("beerStyle").description("Style of the beer"),
                                         fields.withPath("upc").description("Beer UPC"),
+                                        fields.withPath("price").description("Price of the beer"),
                                         fields.withPath("createdDate").ignored(),
                                         fields.withPath("lastUpdatedDate").ignored()
                                 )
