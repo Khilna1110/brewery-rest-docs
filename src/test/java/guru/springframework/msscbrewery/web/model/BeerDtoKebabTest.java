@@ -5,19 +5,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.test.context.ActiveProfiles;
 
-@ActiveProfiles("snake")
+@ActiveProfiles("kebab")
 @JsonTest
-class BeerDtoSnakeTest extends BaseTest {
+class BeerDtoKebabTest extends BaseTest {
 
     @Test
-    void testSnakeDto() throws JsonProcessingException {
+    void testKebabDto() throws JsonProcessingException {
 
         BeerDto beerDto = getDto();
 
         String json = objectMapper.writeValueAsString(beerDto);
 
         System.out.println(json);
-
-
     }
 }
