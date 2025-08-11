@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -57,6 +58,7 @@ public class BeerControllerTest {
                 .beerStyle("PALE_ALE")
                 .price(new BigDecimal("11.99"))
                 .upc(123456789012L)
+                .myLocalDate(LocalDate.now())
                 .build();
     }
 
@@ -79,7 +81,8 @@ public class BeerControllerTest {
                                 fieldWithPath("upc").description("Beer UPC"),
                                 fieldWithPath("price").description("Price of the beer"),
                                 fieldWithPath("createdDate").description("Created Date of Beer").type(OffsetDateTime.class),
-                                fieldWithPath("lastUpdatedDate").description("Last Updated Date of Beer").type(OffsetDateTime.class)
+                                fieldWithPath("lastUpdatedDate").description("Last Updated Date of Beer").type(OffsetDateTime.class),
+                                fieldWithPath("myLocalDate").ignored()
                         )
                 ));
     }
@@ -108,7 +111,8 @@ public class BeerControllerTest {
                                         fields.withPath("upc").description("Beer UPC"),
                                         fields.withPath("price").description("Price of the beer"),
                                         fields.withPath("createdDate").ignored(),
-                                        fields.withPath("lastUpdatedDate").ignored()
+                                        fields.withPath("lastUpdatedDate").ignored(),
+                                        fields.withPath("myLocalDate").ignored()
                                 )
                         )
                 );
